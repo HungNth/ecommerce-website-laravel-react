@@ -17,16 +17,23 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
+            $table->string('zip_code')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('profile_image')->nullable();
+            $table->boolean('profile_completed')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
-
+        
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
         });
-
+        
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreignId('user_id')->nullable()->index();
@@ -36,7 +43,7 @@ return new class extends Migration
             $table->integer('last_activity')->index();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      */
