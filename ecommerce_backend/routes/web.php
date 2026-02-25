@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\Admin\SizeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AdminController::class, 'login'])->name('admin.login');
@@ -12,4 +13,6 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
     Route::post('logout', [AdminController::class, 'logout'])->name('logout');
     // colors routes
     Route::resource('colors', ColorController::class)->except('show');
+    // sizes routes
+    Route::resource('sizes', SizeController::class)->except('show');
 });
