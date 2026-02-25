@@ -20,7 +20,7 @@ class AddCouponRequest extends FormRequest
         return true;
     }
     
-    public function messages()
+    public function messages(): array
     {
         return [
             'valid_until.required' => 'The coupon validity is required',
