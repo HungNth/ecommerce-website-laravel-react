@@ -3,13 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\AddColorRequest;
 use App\Http\Requests\AddSizeRequest;
-use App\Http\Requests\UpdateColorRequest;
 use App\Http\Requests\UpdateSizeRequest;
-use App\Models\Color;
 use App\Models\Size;
-use Illuminate\Http\Request;
 
 class SizeController extends Controller
 {
