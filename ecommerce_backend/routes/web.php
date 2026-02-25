@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\CouponController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SizeController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +19,6 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('sizes', SizeController::class)->except('show');
     // coupons routes
     Route::resource('coupons', CouponController::class)->except('show');
+    // products routes
+    Route::resource('products', ProductController::class)->except('show');
 });
