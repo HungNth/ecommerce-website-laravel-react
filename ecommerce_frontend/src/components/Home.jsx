@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import ProductsList from './products/ProductsList.jsx';
+import { axiosRequest } from '../helpers/config.js';
 
 export default function Home() {
     const [products, setProducts] = useState([]);
@@ -9,17 +9,17 @@ export default function Home() {
     const [loading, setLoading] = useState(false);
     
     useEffect(() => {
-        const fetchAllProducts = async () => {
+        const fetchAllProducts = async() => {
             setLoading(true);
             try {
-                const response = await axios.get('https://ecommerce_backend.test/api/products');
+                const response = await axiosRequest.get('/products');
                 setProducts(response.data.data);
-                setColors(response.data.colors)
-                setSizes(response.data.sizes)
+                setColors(response.data.colors);
+                setSizes(response.data.sizes);
             } catch (e) {
                 console.log(e);
             }
-        }
+        };
         
         fetchAllProducts();
     }, []);
