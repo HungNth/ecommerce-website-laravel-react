@@ -16,13 +16,11 @@ class ProductController extends Controller
     public function index()
     {
         return ProductResource::collection(
-            Product::with(['colors', 'sizes', 'reviews'])
-                ->latest()
-                ->get(),
-        )->additional([
-            'colors' => Color::has('products')->get(),
-            'sizes' => Size::has('products')->get(),
-        ]);
+            Product::with(['colors', 'sizes', 'reviews'])->latest()->get())
+            ->additional([
+                'colors' => Color::has('products')->get(),
+                'sizes' => Size::has('products')->get(),
+            ]);
     }
     
     /**
