@@ -70,7 +70,7 @@
                                         @endif
                                     </th>
                                     <th>
-                                        <a href="{{ route('admin.products.edit', $product->id) }}"
+                                        <a href="{{ route('admin.products.edit', $product) }}"
                                            class="btn btn-sm btn-warning">
                                             <i class="fas fa-edit"></i>
                                         </a>
@@ -80,7 +80,7 @@
                                             <i class="fas fa-trash"></i>
                                         </a>
                                         <form id="{{ $product->id }}"
-                                              action="{{ route('admin.products.destroy', $product->id) }}"
+                                              action="{{ route('admin.products.destroy', $product) }}"
                                               method="POST">
                                             @csrf
                                             @method('DELETE')
