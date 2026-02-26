@@ -83,28 +83,28 @@ class ProductController extends Controller
             
             if ($request->has('thumbnail')) {
                 // remove old thumbnail
-                $this->removeProductImageFromStorage($request->file('thumbnail'));
+                $this->removeProductImageFromStorage($product->thumbnail);
                 // store new thumbnail
                 $data['thumbnail'] = $this->saveImage($request->file('thumbnail'));
             }
             // check if the request has images and save them
             if ($request->has('first_image')) {
                 // remove old image
-                $this->removeProductImageFromStorage($request->file('first_image'));
+                $this->removeProductImageFromStorage($product->first_image);
                 // store new image
                 $data['first_image'] = $this->saveImage($request->file('first_image'));
             }
             
             if ($request->has('second_image')) {
                 // remove old image
-                $this->removeProductImageFromStorage($request->file('second_image'));
+                $this->removeProductImageFromStorage($product->second_image);
                 // store new image
                 $data['second_image'] = $this->saveImage($request->file('second_image'));
             }
             
             if ($request->has('third_image')) {
                 // remove old image
-                $this->removeProductImageFromStorage($request->file('third_image'));
+                $this->removeProductImageFromStorage($product->third_image);
                 // store new image
                 $data['third_image'] = $this->saveImage($request->file('third_image'));
             }
@@ -150,7 +150,7 @@ class ProductController extends Controller
      */
     public function removeProductImageFromStorage($file)
     {
-        $path = public_path('storage/images/products/'.$file);
+        $path = public_path($file);
         if (File::exists($path)) {
             File::delete($path);
         }
