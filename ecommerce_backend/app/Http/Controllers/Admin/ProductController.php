@@ -110,6 +110,7 @@ class ProductController extends Controller
             }
             // generate slug from name
             $data['slug'] = Str::slug($request->name);
+            $data['status'] = $request->status;
             
             $product->update($data);
             $product->colors()->sync($request->color_id);
